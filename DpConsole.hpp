@@ -2,35 +2,35 @@
 
 #include "Library.h"
 
-//—’…´∂®“Â
-#define COLOR_RED (FOREGROUND_RED | FOREGROUND_INTENSITY)                                               //∫Ï…´
-#define COLOR_GREEN (FOREGROUND_GREEN | FOREGROUND_INTENSITY)                                           //¬Ã…´
-#define COLOR_BLUE (FOREGROUND_BLUE | FOREGROUND_INTENSITY)                                             //¿∂…´
-#define COLOR_YELLOW (FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY)                         //ª∆…´
-#define COLOR_MAGENTA (FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_INTENSITY)                         //∆∑∫Ï…´
-#define COLOR_CYAN (FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY)                          //«‡…´
-#define COLOR_WHITE (FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE)                               //∞◊…´
-#define COLOR_GRAY (FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY)         //ª“…´
-#define COLOR_BLACK (0)                                                                                 //∫⁄…´
-#define COLOR_DEFAULT (FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE)                             //ƒ¨»œ—’…´
+//È¢úËâ≤ÂÆö‰πâ
+#define COLOR_RED (FOREGROUND_RED | FOREGROUND_INTENSITY)                                     
+#define COLOR_GREEN (FOREGROUND_GREEN | FOREGROUND_INTENSITY)                                 
+#define COLOR_BLUE (FOREGROUND_BLUE | FOREGROUND_INTENSITY)                                         
+#define COLOR_YELLOW (FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY)                      
+#define COLOR_MAGENTA (FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_INTENSITY)                        
+#define COLOR_CYAN (FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY)                       
+#define COLOR_WHITE (FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE)                             
+#define COLOR_GRAY (FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY)       
+#define COLOR_BLACK (0)                                                                               
+#define COLOR_DEFAULT (FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE)                          
 
-#define BG_COLOR_RED (BACKGROUND_RED | BACKGROUND_INTENSITY)                                            //±≥æ∞∫Ï…´
-#define BG_COLOR_GREEN (BACKGROUND_GREEN | BACKGROUND_INTENSITY)                                        //±≥æ∞¬Ã…´
-#define BG_COLOR_BLUE (BACKGROUND_BLUE | BACKGROUND_INTENSITY)	                                        //±≥æ∞¿∂…´
-#define BG_COLOR_YELLOW (BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_INTENSITY)                      //±≥æ∞ª∆…´
-#define BG_COLOR_MAGENTA (BACKGROUND_RED | BACKGROUND_BLUE | BACKGROUND_INTENSITY)                      //±≥æ∞∆∑∫Ï…´
-#define BG_COLOR_CYAN (BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY)                       //±≥æ∞«‡…´
-#define BG_COLOR_WHITE (BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE)                            //±≥æ∞∞◊…´
-#define BG_COLOR_GRAY (BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY)      //±≥æ∞ª“…´
-#define BG_COLOR_BLACK (0)                                                                              //±≥æ∞∫⁄…´
-#define BG_COLOR_DEFAULT (BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE)                          //±≥æ∞ƒ¨»œ—’…´
+#define BG_COLOR_RED (BACKGROUND_RED | BACKGROUND_INTENSITY)                                  
+#define BG_COLOR_GREEN (BACKGROUND_GREEN | BACKGROUND_INTENSITY)                               
+#define BG_COLOR_BLUE (BACKGROUND_BLUE | BACKGROUND_INTENSITY)	                                    
+#define BG_COLOR_YELLOW (BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_INTENSITY)                
+#define BG_COLOR_MAGENTA (BACKGROUND_RED | BACKGROUND_BLUE | BACKGROUND_INTENSITY)                
+#define BG_COLOR_CYAN (BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY)                   
+#define BG_COLOR_WHITE (BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE)                          
+#define BG_COLOR_GRAY (BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY)      
+#define BG_COLOR_BLACK (0)                                                                            
+#define BG_COLOR_DEFAULT (BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE)                    
 
 
 namespace DpLib
 {
 	class DpConsole {
 
-		//ª˘±æ–≈œ¢
+		//Âü∫Êú¨‰ø°ÊÅØ
 	public:
 		HANDLE hConsole;
 		CONSOLE_SCREEN_BUFFER_INFO csbi;
@@ -43,7 +43,7 @@ namespace DpLib
 			GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
 		}
 
-		//¥∞ø⁄œ‡πÿ
+		//Á™óÂè£Áõ∏ÂÖ≥
 	public:
 		void setTitle(std::string title) {
 			SetConsoleTitle(title.c_str());
@@ -59,7 +59,7 @@ namespace DpLib
 			SetConsoleWindowInfo(hConsole, TRUE, &rect);
 		}
 
-		// π‚±Íœ‡πÿ
+		// ÂÖâÊ†áÁõ∏ÂÖ≥
 	public:
 		CONSOLE_CURSOR_INFO cursorInfo;
 	public:
@@ -79,7 +79,7 @@ namespace DpLib
 			SetConsoleCursorInfo(hConsole, &cursorInfo);
 		}
 
-		//—’…´œ‡πÿ
+		//È¢úËâ≤Áõ∏ÂÖ≥
 	public:
 		void setColor(int color) {
 			SetConsoleTextAttribute(hConsole, color);
@@ -91,7 +91,7 @@ namespace DpLib
 			SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 		}
 
-		//–¥»Îª∫≥Â«¯œ‡πÿ
+		//ÂÜôÂÖ•ÁºìÂÜ≤Âå∫Áõ∏ÂÖ≥
 	public:
 		void write(std::string str) {
 			WriteConsole(hConsole, str.c_str(), str.size(), NULL, NULL);
@@ -138,7 +138,7 @@ namespace DpLib
 			return numWritten;
 		}
 
-		//∂¡»°œ‡πÿ
+		//ËØªÂèñÁõ∏ÂÖ≥
 	public:
 		std::string read() {
 			std::string str;
