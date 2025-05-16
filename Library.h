@@ -1,0 +1,11 @@
+#pragma once
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+#include <windows.h>
+#include <fstream>
+#include <regex>
+#include <chrono>
+#include <winapifamily.h>
